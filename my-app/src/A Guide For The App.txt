@@ -1,0 +1,87 @@
+Weather App
+
+Redux Toolkit:
+- Action: is a JS object that contains the information for the data i want to make an action with - not action is being made with this it is only the preparation for a function that will do an action.
+  CreateAction: 
+  //Initial state (we will use create Async Thunk)
+  //action creator
+  //reducer - Slice (reducer is traditional naming)
+    const increment = createAction("INCREMENT");
+    and it can be called with or without a payload.
+    by default it can accept one parameter, the required action is the type...
+  it is the same as you create an action the old way:
+  const incrementAction = () => {
+    return {
+      type: INCREMENT,
+    } 
+  }
+
+  inside the action and before it we need an initial state.
+  for my project my initial state should be a city of my choice. and for the search bar i need it to be cleared.
+
+- Reducer: a reducer function...
+
+- Slice: combines an Action and A Reducer.
+
+- CreateAsyncThunk: handles async actions.
+
+- configureStore: stores your memories.
+
+Navbar - weather app name as logo - linking to the home page
+- Weather tab linking to home page also (can be skipped)
+- Favorites tab taking you to another page and showing you only on redux the cities you saved
+  shows you the current weather in this city and as a card has a button to take you back to the home page and change the main city to the saved favorite and shows you 5 days ahead forecast.
+
+Search Bar - has a search input linking to the city autocomplete API
+- send an API autocomplete request after said delay.
+- save button to save city to store and make it show up on your favorites tab.
+- my location button - asks the browser to share users current location using current location API.
+
+@@@
+What does the SearchBar need to work:
+- input gets a letter or a few letters
+- get the letter from the e.event.target?
+- send the letter\combination to the API
+- get from the api the city name according to the input
+- from the city name get the city key
+- ? from the city list choose the one you looked for.
+
+######## GPT ########
+JavaScript Logic:
+Listen for input events on the city search input.
+  {In JavaScript, you can listen for input events on an HTML input element by adding an event listener. The "input" event is triggered every time the value of the input element changes.}
+Debounce the input to reduce the number of API calls.
+Fetch city suggestions from the AccuWeather Autocomplete API using the input value and your API key.
+Parse the API response and display the city suggestions in the suggestions container.
+Add event listeners to the suggestions for selection and updating the input value.
+
+@@@
+Choose the data you wish to GET from the object.
+check the object information inside the AccuWeather Api page and get the 
+
+Current weather preview - has the base picked city name "Tel-Aviv", current degrees and a degree unit type change button.
+- has the current weather in number of degrees and also a description of the current weather.
+
+@@@
+What do i need for the current weather forecast?
+- get the city kay from the input, e.target.key?
+- send city key to the current weather api
+- withdraw the desired information and display it?
+- get current date and display it
+- get current day and display it
+- get min\max degrees
+- get weather type code\name and set icon to match.
+
+5 Days Forecast - uses the third API to provide a 5 day ahead forecast for the current picked city.
+- each days weather forecast has a date, day, min\max degrees and min\max weather icon or day\night icon.
+
+@@@
+What is needed for this section?
+- get chosen city key and send to the api
+- get 5 day ahead dates
+- get 5 days day of the week
+- get min\max degrees
+- get weather icon for each day min\max
+
+Favorite section - only is i want to 
+write the requirements.
