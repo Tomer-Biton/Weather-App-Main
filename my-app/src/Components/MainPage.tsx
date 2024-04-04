@@ -45,15 +45,25 @@ const MainPage = () => {
           rainAnimationClass = 'displayNone weatherAnimation',
           weatherAnimationClass = snowAnimationClass
         )
+      default:
+        return (
+          weatherAnimationUrl = '',
+          rainAnimationClass = 'displayNone weatherAnimation',
+          sunAnimationClass = 'displayNone weatherAnimation',
+          snowAnimationClass = 'displayNone weatherAnimation',
+          weatherAnimationClass = ''
+        );
     }
   };
 
   return (
     <div className='mainPage'>
       <Navbar />
-      <div className={`variableWeather ${getWeatherAnimationClass()} ${weatherAnimationClass}`}>
-        <img src={weatherAnimationUrl} />
-        <RainEffect classUpdater={rainAnimationClass} />
+      <div className="weatherContainer">
+        <div className={`variableWeather ${getWeatherAnimationClass()} ${weatherAnimationClass}`}>
+          <img src={weatherAnimationUrl} />
+          <RainEffect classUpdater={rainAnimationClass} />
+        </div>
       </div>
       <SearchBar />
       <CurrentWeatherCard updateWeather={updateWeatherCondition} />

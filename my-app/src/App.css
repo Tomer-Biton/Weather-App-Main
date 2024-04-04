@@ -385,19 +385,27 @@ html {
   display: none;
 }
 
+.weatherContainer {
+  position: absolute;
+  height: 50dvh;
+  max-width: 100dvw;
+}
+
 .weatherAnimation {
   position: absolute;
   z-index: -1;
 }
 
 .sunAnimation {
-  top: -8%;
-  right: -11%;
+  position: absolute;
+  top: -20%;
+  left: 0;
+  opacity: 0.75;
   aspect-ratio: 1 / 1;
-  scale: 2;
   border-radius: 50%;
   overflow: hidden;
-  animation: sun 12s ease-in infinite;
+  transform-origin: center;
+  animation: sun 8s ease-in infinite;
 }
 
 .rainAnimation {
@@ -412,6 +420,7 @@ html {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  z-index: 100;
 }
 
 .rain::after {
@@ -463,6 +472,21 @@ iframe {
   border: none;
 }
 
+.raindrop {
+  position: absolute;
+  width: 5px;
+  height: 15px;
+  background: linear-gradient(to top, white, rgba(255, 255, 255, 0.5));
+  border-radius: 50% 50% 0 0;
+  animation: fall linear;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
 @keyframes rain {
   100% {
     transform: translateX(-50%) translateY(100vh) rotate(45deg);
@@ -472,17 +496,17 @@ iframe {
 @keyframes sun {
   0% {
     transform: rotate(0deg);
-    scale: 2;
+    scale: 1;
   }
 
   50% {
     transform: rotate(360deg);
-    scale: 2.8;
+    scale: 1.6;
   }
 
   100% {
     transform: rotate(0deg);
-    scale: 2;
+    scale: 1;
   }
 }
 

@@ -28,12 +28,16 @@ const RainEffect: React.FC<RainEffectProps> = ({ classUpdater }) => {
 
   return (
     <>
-      {/* <div className={`rain front-row output-container ${classUpdater}`} dangerouslySetInnerHTML={{ __html: drops }} /> */}
 
       <div className={`output-container ${classUpdater}`}>
         <div className="output-sizer">
           <div id="result_div" className="result">
-            <iframe id="index.html-fac8b7e5-4d3b-36de-dfb4-2318e93c2167" src="https://cdpn.io/cpe/boomboom/index.html?key=index.html-fac8b7e5-4d3b-36de-dfb4-2318e93c2167" className="result-iframe iframe-visual-update" name="CodePen" loading="lazy"></iframe>
+            <div>
+              <div className="rain"></div>
+              <div className="splash"></div>
+              <script src='../utils/rain-effect.ts'></script>
+            </div>
+            <iframe id="index.html-fac8b7e5-4d3b-36de-dfb4-2318e93c2167" src="https://codepen.io/arickle/fullpage/XKjMZY?anon=true&view=" className="result-iframe iframe-visual-update" name="CodePen" loading="lazy"></iframe>
             <div id="editor-drag-cover" className="drag-cover"></div>
           </div>
           <div id="box-console" className="box box-console notranslate" translate="no">

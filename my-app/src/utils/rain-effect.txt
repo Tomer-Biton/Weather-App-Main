@@ -1,0 +1,18 @@
+// document.addEventListener('DOMContentLoaded', () => {
+//     const container = document.getElementById('rain-container');
+//     if (!container) return;
+
+//     const createRaindrop = () => {
+//         const raindrop = document.createElement('div');
+//         raindrop.className = 'raindrop';
+//         raindrop.style.left = `${Math.random() * 100}%`;
+//         raindrop.style.animationDuration = `${Math.random() * 2 + 1}s`;
+//         container.appendChild(raindrop);
+//     };
+
+//     for (let i = 0; i < 100; i++) {
+//         createRaindrop();
+//     }
+// });
+
+export default {};

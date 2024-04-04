@@ -1,11 +1,38 @@
 import { useDispatch } from 'react-redux';
 import { setGeoLocation } from '../app/Slices/geoLocationSlice';
+import { ApiKey } from '../app/Slices/autocompleteSlice';
+import { fetchCurrentWeather } from '../app/Slices/currentWeatherSlice';
+import { useAppSelector } from '../app/hooks';
+import { RootState } from '../app/store';
 
 const GetLocationButton = () => {
 
   const dispatch = useDispatch();
 
-  const getCurrentLocation = () => {
+  const getCurrentLocation = async () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const combinedPosition = latitude + ',' + longitude;
+
+        try {
+          const response = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${ApiKey}&q=${combinedPosition}`);
+          const data = await response.json();
+          const locationKey = data.Key;
+          const stringLocationKey = locationKey.toString();
+
+          dispatch(setGeoLocation(locationKey));
+          dispatch(fetchCurrentWeather(stringLocationKey));
+        } catch (error) {
+          console.error('Error fetching location key:', error);
+        }
+      }, handleError);
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+      alert("Geolocation is not supported by this browser.");
+    }
+
     const positionTest = {
       latitude: 0,
       longitude: 0
@@ -47,6 +74,10 @@ const GetLocationButton = () => {
         alert("An unknown error occurred.")
         break;
     }
+  }
+
+  const updateCurrentLocationCityKey = (locationKey: string) => {
+    dispatch(fetchCurrentWeather(locationKey));
   }
 
   return (

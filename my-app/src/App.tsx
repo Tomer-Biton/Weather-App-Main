@@ -1,17 +1,16 @@
-import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, BrowserRouter } from 'react-router-dom';
 import MainPage from './Components/MainPage';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter basename="/Tomer-Biton/Tomer-s-Portfolio.git">
       <div className="App">
         <Routes>
           <Route path="/" element={<MainPage />} />
         </Routes>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
