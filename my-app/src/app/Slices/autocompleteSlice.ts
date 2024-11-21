@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const ApiKey = '8qBxIfr0YxMyaY1ERVxBIAN8VeNqxpQb';
+export const ApiKey = 'B6x41H1kaF0t9vIi0D3AwGuVQ6lRS5yR';
 export const AutoCompleteUrl = 'http://dataservice.accuweather.com/locations/v1/cities/autocomplete';
 
 export interface CityACArray {
